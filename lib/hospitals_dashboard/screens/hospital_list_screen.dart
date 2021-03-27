@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:queueless/data_classes/hospital_dataclass.dart';
 import '../widgets/hospital_card.dart';
 
 class HospitalListScreen extends StatelessWidget {
@@ -6,6 +8,10 @@ class HospitalListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final _hospitalProvider = Provider.of<HospitalsProvider>(context);
+    final _hospitals = _hospitalProvider.availableHospitals;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -30,8 +36,13 @@ class HospitalListScreen extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) => HospitalCard(),
+        itemCount: _hospitals.length,
+        itemBuilder: (context, index) => HospitalCard(
+          hospitalId: _hospitals[index].hospitalId,
+          name: _hospitals[index].hospitalName,
+          address: _hospitals[index].address,
+          imgLink: _hospitals[index].hospitalImageLink,
+        ),
       ),
     );
   }

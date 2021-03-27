@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:queueless/hopitals_dashboard/screens/hospital_detail_screen.dart';
-import 'package:queueless/hopitals_dashboard/screens/hospital_list_screen.dart';
+import './data_classes/hospital_dataclass.dart';
+import './hospitals_dashboard/screens/hospital_detail_screen.dart';
+import './hospitals_dashboard/screens/hospital_list_screen.dart';
 import './custom_route_transition.dart';
 import './home_dashboard.dart/screens/home_dashboard.dart';
 import './covid_dashboard/covidDashboard.dart';
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => CovidDataProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => HospitalsProvider(),
+        )
       ],
       child: MaterialApp(
         builder: (context, child) {

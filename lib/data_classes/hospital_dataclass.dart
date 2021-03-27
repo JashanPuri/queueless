@@ -1,39 +1,81 @@
-import 'dart:io';
+import 'package:flutter/cupertino.dart';
+
 import './category_class.dart';
 import './doctor_class.dart';
 
-class Hospital{
-
+class Hospital {
   final int hospitalId;
   final String hospitalName;
   final String address;
-  final int phone;
+  final String phone;
   final String email;
-  File hospitalImage;
+  final String hospitalImageLink;
   List<Categories> categories;
-  final Map<Categories,List<Doctor>> availableDoctors;
+  final Map<Categories, List<Doctor>> availableDoctors;
 
   Hospital({
-    this.hospitalId, this.hospitalName, this.address, this.phone, this.email, this.hospitalImage, this.availableDoctors,this.categories
+    this.hospitalId,
+    this.hospitalName,
+    this.address,
+    this.phone,
+    this.email,
+    this.hospitalImageLink,
+    this.availableDoctors,
+    this.categories,
   });
 }
-List<Hospital> availableHospitals = [
-  Hospital(hospitalId:1,hospitalName:"AIIMS IGITIT",address:"Dwarka Sector-3C",phone: 8963254189,email:"aiimsigitit@aiims.in"),
-  Hospital(hospitalId:2,hospitalName:"AIIMS IGITIT",address:"Dwarka Sector-3C",phone: 8963254189,email:"aiimsigitit@aiims.in"),
-  Hospital(hospitalId:3,hospitalName:"AIIMS IGITIT",address:"Dwarka Sector-3C",phone: 8963254189,email:"aiimsigitit@aiims.in"),
-  Hospital(hospitalId:4,hospitalName:"AIIMS IGITIT",address:"Dwarka Sector-3C",phone: 8963254189,email:"aiimsigitit@aiims.in"),
-];
 
-List<Hospital> getHospitals(){
-  return availableHospitals;
-}
+class HospitalsProvider with ChangeNotifier {
+  List<Hospital> _availableHospitals = [
+    Hospital(
+      hospitalId: 1,
+      hospitalName: "AIIMS IGITIT",
+      address: "Dwarka Sector-3C",
+      phone: '8963254189',
+      email: "aiimsigitit@aiims.in",
+      categories: availablecategories,
+      hospitalImageLink:
+          'https://bsmedia.business-standard.com/_media/bs/img/article/2017-03/17/full/1489734350-5336.jpg',
+    ),
+    Hospital(
+      hospitalId: 2,
+      hospitalName: "AIIMS IGITIT",
+      address: "Dwarka Sector-3C",
+      phone: '8963254189',
+      email: "aiimsigitit@aiims.in",
+      categories: availablecategories,
+      hospitalImageLink:
+          'https://bsmedia.business-standard.com/_media/bs/img/article/2017-03/17/full/1489734350-5336.jpg',
+    ),
+    Hospital(
+      hospitalId: 3,
+      hospitalName: "AIIMS IGITIT",
+      address: "Dwarka Sector-3C",
+      phone: '8963254189',
+      email: "aiimsigitit@aiims.in",
+      categories: availablecategories,
+      hospitalImageLink:
+          'https://bsmedia.business-standard.com/_media/bs/img/article/2017-03/17/full/1489734350-5336.jpg',
+    ),
+    Hospital(
+      hospitalId: 4,
+      hospitalName: "AIIMS IGITIT",
+      address: "Dwarka Sector-3C",
+      phone: '8963254189',
+      email: "aiimsigitit@aiims.in",
+      categories: availablecategories,
+      hospitalImageLink:
+          'https://bsmedia.business-standard.com/_media/bs/img/article/2017-03/17/full/1489734350-5336.jpg',
+    ),
+  ];
 
-List<Categories> cate = getCategories();
+  List<Hospital> get availableHospitals {
+    return _availableHospitals;
+  }
 
-Hospital getCategorybyHospitalId( int hospitalId) {
-  Hospital _hospital;
-  _hospital = availableHospitals.firstWhere((element) => element.hospitalId == hospitalId);
-  _hospital.categories = cate;
-
-  return _hospital;
+  Hospital getHospitalById(int id) {
+    return _availableHospitals.firstWhere(
+      (element) => element.hospitalId == id,
+    );
+  }
 }

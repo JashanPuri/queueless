@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:queueless/hopitals_dashboard/screens/hospital_detail_screen.dart';
+import 'package:queueless/hospitals_dashboard/screens/hospital_detail_screen.dart';
 
 class HospitalCard extends StatelessWidget {
+  final String imgLink;
+  final String name;
+  final String address;
+  final int hospitalId;
+
+  HospitalCard({this.address, this.imgLink, this.name, this.hospitalId});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,6 +16,7 @@ class HospitalCard extends StatelessWidget {
       child: InkWell(
         onTap: () => Navigator.of(context).pushNamed(
           HospitalDetailScreen.routeName,
+          arguments: hospitalId,
         ),
         child: Card(
           elevation: 3,
@@ -30,7 +38,7 @@ class HospitalCard extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                      'https://bsmedia.business-standard.com/_media/bs/img/article/2017-03/17/full/1489734350-5336.jpg',
+                      imgLink,
                     ),
                   ),
                 ),
@@ -44,7 +52,7 @@ class HospitalCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'All India Institute of Medical Sciences',
+                      name,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -52,7 +60,7 @@ class HospitalCard extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     Text(
-                      'Addresssssssssssssss',
+                      address,
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                   ],
