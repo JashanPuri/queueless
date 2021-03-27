@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:queueless/auth/screens/loginScreen.dart';
+import 'package:queueless/data_classes/doctor_class.dart';
+import 'package:queueless/hospitals_dashboard/screens/doctors_list_screen.dart';
 import './article/article_provider.dart';
 import './data_classes/hospital_dataclass.dart';
 import './hospitals_dashboard/screens/hospital_detail_screen.dart';
@@ -32,6 +34,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => ArticleProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => DoctorsProvider(),
+        ),
       ],
       child: MaterialApp(
         builder: (context, child) {
@@ -59,6 +64,7 @@ class MyApp extends StatelessWidget {
           HomeDashboard.routeName: (context) => HomeDashboard(),
           HospitalListScreen.routeName: (context) => HospitalListScreen(),
           HospitalDetailScreen.routeName: (context) => HospitalDetailScreen(),
+          DoctorsListScreen.routeName: (context) => DoctorsListScreen(),
         },
       ),
     );

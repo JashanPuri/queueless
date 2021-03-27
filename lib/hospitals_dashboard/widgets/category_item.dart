@@ -3,26 +3,30 @@ import 'package:queueless/data_classes/category_class.dart';
 
 class CategoryItem extends StatelessWidget {
   final Categories category;
+  final Function onTap;
 
-  const CategoryItem({this.category});
+  const CategoryItem({this.category, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Container(
-              height: 80,
-              width: 80,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    'assets/images/${category.categoryIconPath}',
+            Hero(
+              tag: category.categoryId,
+              child: Container(
+                height: 80,
+                width: 80,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      'assets/images/${category.categoryIconPath}',
+                    ),
                   ),
                 ),
               ),

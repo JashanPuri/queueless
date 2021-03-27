@@ -17,9 +17,8 @@ class HospitalListScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.chevron_left),
+          icon: Icon(Icons.arrow_back_ios),
           color: Colors.black,
-          iconSize: 36,
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(

@@ -27,7 +27,7 @@ class DashboardCard extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/$imgName',
                   height: height,
-                  width: width > 350 ? 160 : 120,
+                  width: width > 350 ? 145 : 120,
                 ),
               ),
               Padding(
