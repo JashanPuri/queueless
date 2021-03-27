@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
         },
         title: 'Queueless',
         theme: ThemeData(
+          fontFamily: 'vag',
           primaryColor: Color(0xFF1614E0),
           pageTransitionsTheme: PageTransitionsTheme(
             builders: {
