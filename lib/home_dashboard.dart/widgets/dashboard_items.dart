@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queueless/article/article_dashboard.dart';
 import '../../hospitals_dashboard/screens/hospital_list_screen.dart';
 import '../../covid_dashboard/covidDashboard.dart';
 import './dashboard_card.dart';
@@ -19,7 +20,8 @@ class DashboardItems extends StatelessWidget {
               height: width > 400 ? 150 : 100,
               imgName: 'hospital-clipart.png',
               label: 'HOSPITALS',
-              onTap: () => Navigator.of(context).pushNamed(HospitalListScreen.routeName),
+              onTap: () =>
+                  Navigator.of(context).pushNamed(HospitalListScreen.routeName),
             ),
             SizedBox(height: 15),
             DashboardCard(
@@ -36,7 +38,9 @@ class DashboardItems extends StatelessWidget {
               height: width > 400 ? 100 : 70,
               imgName: 'article-clipart.png',
               label: 'ARTICLES',
-              onTap: () {},
+              onTap: () => Navigator.of(context).pushNamed(
+                ArticleDashboard.routeName,
+              ),
             ),
             SizedBox(height: 15),
             DashboardCard(
