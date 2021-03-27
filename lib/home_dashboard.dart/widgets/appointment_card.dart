@@ -1,13 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadiusDirectional.circular(25),
+        boxShadow: [BoxShadow(
+          color: Theme.of(context).primaryColor.withOpacity(0.15),
+            spreadRadius: 2,
+            blurRadius: 2,
+
+        )],
+      ),
       width: 400,
       child: Card(
         elevation: 10,
-        color: Theme.of(context).primaryColor.withOpacity(0.85),
+        color: Theme.of(context).primaryColor.withOpacity(0.65),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
         ),
@@ -21,8 +31,11 @@ class AppointmentCard extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                      color: Colors.blueGrey,
-                      borderRadius: BorderRadius.circular(10)),
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(50)),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/doctor-avatar.jpg'),
+                ),
                 ),
                 title: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
@@ -41,7 +54,7 @@ class AppointmentCard extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
-                    'Cardiology',
+                    'Cardiologist',
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.8),
                       fontSize: 16,
@@ -96,7 +109,7 @@ class AppointmentCard extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal:10.0),
                           child: Text(
-                            'XYZ Hospital',
+                            'AIIMS IGITIT',
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.85),
                             ),

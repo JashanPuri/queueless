@@ -18,6 +18,7 @@ class DoctorTile extends StatelessWidget {
         leading: CircleAvatar(
           radius: 30,
           backgroundColor: Colors.red,
+          backgroundImage: AssetImage('assets/images/doctor-avatar.jpg'),
         ),
         title: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),

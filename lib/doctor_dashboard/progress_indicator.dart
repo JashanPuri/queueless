@@ -6,9 +6,7 @@ class ProgressIndicatorWidget extends StatelessWidget {
   final int completed;
   final int total;
 
-  ProgressIndicatorWidget({this.completed,this.total});
-
-  
+  ProgressIndicatorWidget({this.completed, this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +46,26 @@ class ProgressIndicatorWidget extends StatelessWidget {
                   TextWidget(
                     "Patients Done",
                     color: Colors.grey,
-                  )
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                      decoration:
+                          BoxDecoration(shape: BoxShape.circle, boxShadow: [
+                        BoxShadow(color: Colors.green.shade200, blurRadius: 3)
+                      ]),
+                      child: Icon(
+                        Icons.check_circle,
+                        color: Colors.green,
+                      )),
+                  SizedBox(width: 15, height: 40),
+                  TextWidget(
+                    "Available",
+                    color: Colors.green,
+                    isBold: true,
+                  ),
                 ],
               )
             ],

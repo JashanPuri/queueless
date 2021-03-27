@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        home: DoctorDashboard(),
+        home: HomeDashboard(),
         routes: {
           OtpScreen.routeName: (context) => OtpScreen(),
           CovidDashboard.routeName: (context) => CovidDashboard(),
