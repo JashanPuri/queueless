@@ -4,6 +4,7 @@ import '../widgets/category_item.dart';
 import '../widgets/hospital_detail_field.dart';
 import '../../data_classes/hospital_dataclass.dart';
 import '../widgets/hospital_image.dart';
+import 'doctors_list_screen.dart';
 
 class HospitalDetailScreen extends StatelessWidget {
   static const routeName = './hospital_details_screen';
@@ -21,8 +22,7 @@ class HospitalDetailScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: IconButton(
-          icon: Icon(Icons.chevron_left),
-          iconSize: 36,
+          icon: Icon(Icons.arrow_back_ios),
           color: Colors.black,
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -50,7 +50,7 @@ class HospitalDetailScreen extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             HospitalDetailField(
               value: _hospital.phone,
               icon: Icons.phone,
@@ -60,11 +60,12 @@ class HospitalDetailScreen extends StatelessWidget {
               value: _hospital.email,
               icon: Icons.email,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             const Text(
-                'Categories',
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
-              ),
+              'Categories',
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
+            ),
+            SizedBox(height: 5),
             Container(
               width: double.infinity,
               child: Wrap(
@@ -73,11 +74,19 @@ class HospitalDetailScreen extends StatelessWidget {
                     .map(
                       (category) => CategoryItem(
                         category: category,
+                        onTap: () => Navigator.of(context).pushNamed(
+                          DoctorsListScreen.routeName,
+                          arguments: {
+                            'category': category,
+                            'hospId': _hospitalId,
+                          },
+                        ),
                       ),
                     )
                     .toList(),
               ),
-            )
+            ),
+            SizedBox(height: 10),
           ],
         ),
       )),

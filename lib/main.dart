@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:queueless/auth/screens/loginScreen.dart';
+import 'package:queueless/data_classes/appointment_class.dart';
 import 'package:queueless/doctor_dashboard/doctor_dashboard.dart';
+import 'package:queueless/data_classes/doctor_class.dart';
+import 'package:queueless/hospitals_dashboard/screens/doctors_list_screen.dart';
 import './article/article_provider.dart';
 import './data_classes/hospital_dataclass.dart';
 import './hospitals_dashboard/screens/hospital_detail_screen.dart';
@@ -33,6 +36,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => ArticleProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => DoctorsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AppointmentProvider(),
+        ),
       ],
       child: MaterialApp(
         builder: (context, child) {
@@ -51,7 +60,7 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        home: HomeDashboard(),
+        home: DoctorDashboard(),
         routes: {
           OtpScreen.routeName: (context) => OtpScreen(),
           CovidDashboard.routeName: (context) => CovidDashboard(),
@@ -60,7 +69,8 @@ class MyApp extends StatelessWidget {
           HomeDashboard.routeName: (context) => HomeDashboard(),
           HospitalListScreen.routeName: (context) => HospitalListScreen(),
           HospitalDetailScreen.routeName: (context) => HospitalDetailScreen(),
-          DoctorDashboard.routeName: (context) => DoctorDashboard()
+          DoctorDashboard.routeName: (context) => DoctorDashboard(),
+          DoctorsListScreen.routeName: (context) => DoctorsListScreen(),
         },
       ),
     );
