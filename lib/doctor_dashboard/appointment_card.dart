@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,7 @@ class AppointmentCard extends StatelessWidget {
       ],
       child: Container(
         width: double.infinity,
-        height: 100,
+        height: 120,
         margin: EdgeInsets.only(bottom: 8),
         child: Card(
           color: _colors[apnmt.appointmentId%6],
@@ -62,6 +63,12 @@ class AppointmentCard extends StatelessWidget {
                   color: Colors.white,
                   size: 18,
                 ),
+                SizedBox(height: 5),
+                TextWidget(
+                  "Time : ${DateFormat("h:mma").format(apnmt.estimatedAppointmentTime)}",
+                  color: Colors.white,
+                  size: 18,
+                )
                 // date time //TextWidget(DateFormat(r'''MMMM dd, yyyy 'at' hh:mm:ss a Z''').parse(apnmt.estimatedAppointmentTime.toString()))
               ],
             ),
