@@ -59,6 +59,7 @@ class DoctorsListScreen extends StatelessWidget {
               ..._doctors
                   .map((doctor) => DoctorTile(
                     doctor: doctor,
+                    img: category.categoryIconPath,
                   ))
                   .toList()
             ],
