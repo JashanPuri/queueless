@@ -3,9 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:queueless/article/article_dashboard.dart';
 import 'package:queueless/article/article_detail.dart';
 import './article/article_provider.dart';
+import 'package:queueless/hopitals_dashboard/screens/hospital_detail_screen.dart';
+import 'package:queueless/hopitals_dashboard/screens/hospital_list_screen.dart';
+import './custom_route_transition.dart';
+import './home_dashboard.dart/screens/home_dashboard.dart';
 import './covid_dashboard/covidDashboard.dart';
 import './covid_dashboard/covid_data_provider.dart';
-import 'scrollbehavior.dart';
+import './scrollbehavior.dart';
 import './auth/screens/otp-screen.dart';
 //import './auth/screens/loginScreen.dart';
 
@@ -34,14 +38,23 @@ class MyApp extends StatelessWidget {
         },
         title: 'Queueless',
         theme: ThemeData(
-          primaryColor: Color(0xFF2934D8),
+          primaryColor: Color(0xFF1614E0),
+          pageTransitionsTheme: PageTransitionsTheme(
+            builders: {
+              TargetPlatform.android: CustomPageTransitionBuilder(),
+              TargetPlatform.iOS: CustomPageTransitionBuilder(),
+            },
+          ),
         ),
         home: ArticleDashboard(),
         routes: {
           OtpScreen.routeName: (context) => OtpScreen(),
           CovidDashboard.routeName: (context) => CovidDashboard(),
           ArticleDetail.routeName: (context) => ArticleDetail(),
-          ArticleDashboard.routeName: (context) => ArticleDashboard()
+          ArticleDashboard.routeName: (context) => ArticleDashboard(),
+          HomeDashboard.routeName: (context) => HomeDashboard(),
+          HospitalListScreen.routeName: (context) => HospitalListScreen(),
+          HospitalDetailScreen.routeName: (context) => HospitalDetailScreen(),
         },
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queueless/covid_dashboard/covidDashboard.dart';
+import '../../home_dashboard.dart/screens/home_dashboard.dart';
 import '../widgets/login_image.dart';
 import '../widgets/otp-form.dart';
 
@@ -14,7 +14,7 @@ class _OtpScreenState extends State<OtpScreen> {
   void confirmOtp() {
     print("OTP = $_otp");
     Navigator.of(context).pushNamed(
-      CovidDashboard.routeName,
+      HomeDashboard.routeName,
     );
   }
 
