@@ -1,5 +1,3 @@
-import 'dart:io';
-
 class Categories {
   final int categoryId;
   final String categoryName;

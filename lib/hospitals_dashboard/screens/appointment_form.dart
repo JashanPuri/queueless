@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:queueless/common-widgets/custom_elevated_button.dart';
 import 'package:queueless/common-widgets/text_widget.dart';
+import 'package:queueless/hospitals_dashboard/screens/payment_screen.dart';
 
 class AppointmentForm extends StatefulWidget {
-  static const routeName = 'appointment-form';
+  static const routeName = '/appointment-form';
   @override
   _AppointmentFormState createState() => _AppointmentFormState();
 }
@@ -12,15 +13,14 @@ class _AppointmentFormState extends State<AppointmentForm> {
   String name;
   int age;
   String description;
-  Widget _textField(hint,{maxLine : 1}) {
+  Widget _textField(hint, {maxLine: 1}) {
     return TextFormField(
       maxLines: maxLine,
       decoration: InputDecoration(
         hintText: hint,
         border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-        
+          borderRadius: BorderRadius.circular(30),
+        ),
       ),
     );
   }
@@ -43,7 +43,6 @@ class _AppointmentFormState extends State<AppointmentForm> {
                     IconButton(
                         icon: Icon(Icons.arrow_back_ios),
                         onPressed: () => Navigator.of(context).pop()),
-                    
                   ],
                 ),
               ),
@@ -55,20 +54,25 @@ class _AppointmentFormState extends State<AppointmentForm> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18,vertical: 40),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 18, vertical: 40),
                       child: Column(
                         children: [
-                          TextWidget("Appointment Form", size: 27, isBold: true),
+                          TextWidget("Appointment Form",
+                              size: 27, isBold: true),
                           SizedBox(height: 30),
                           _textField("Name"),
                           SizedBox(height: 25),
                           _textField("Age"),
                           SizedBox(height: 25),
-                          _textField("Description",maxLine: 5),
+                          _textField("Description", maxLine: 5),
                           SizedBox(height: 85),
                           CustomElevatedButton(
                             label: "Pay Fee",
-                            onPressed: null,
+                            onPressed: () {
+                              Navigator.of(context).pushReplacementNamed(
+                                  PaymentScreen.routeName);
+                            },
                           )
                         ],
                       ),

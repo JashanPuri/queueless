@@ -17,8 +17,9 @@ class DashboardCard extends StatelessWidget {
         onTap: onTap,
         child: Card(
           elevation: 5,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
           color: Color.fromRGBO(247, 247, 247, 1),
           child: Column(
             children: [

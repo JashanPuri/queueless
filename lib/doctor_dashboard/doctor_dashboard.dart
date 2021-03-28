@@ -91,7 +91,7 @@ class _DoctorDashboardState extends State<DoctorDashboard> {
                 ),
                 SizedBox(height: 10),
                 DashboardLabel("Completed Appointments"),
-              if (_completedAppointments != 0)
+              if (_completedAppointments.length != 0)
               Container(
                   margin: const EdgeInsets.only(left: 20, bottom: 5, right: 20),
                   child: Column(

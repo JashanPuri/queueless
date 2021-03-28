@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:queueless/data_classes/category_class.dart';
 import 'package:queueless/data_classes/doctor_class.dart';
+import 'package:queueless/hospitals_dashboard/screens/appointment_form.dart';
 import 'package:queueless/hospitals_dashboard/widgets/doctor_tile.dart';
 
 class DoctorsListScreen extends StatelessWidget {
@@ -31,6 +32,12 @@ class DoctorsListScreen extends StatelessWidget {
           color: Colors.black,
           onPressed: () => Navigator.of(context).pop(),
         ),
+        title: Text(
+          'Meet Your ${category.categoryName}',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -56,11 +63,32 @@ class DoctorsListScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              ..._doctors
-                  .map((doctor) => DoctorTile(
-                    doctor: doctor,
-                  ))
-                  .toList()
+              if (_doctors.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20.0),
+                  child: Center(
+                    child: Text(
+                      'No doctors available',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              if (_doctors.isNotEmpty)
+                ..._doctors
+                    .map((doctor) => InkWell(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed(AppointmentForm.routeName);
+                          },
+                          child: DoctorTile(
+                            doctor: doctor,
+                            img: category.categoryIconPath,
+                          ),
+                        ))
+                    .toList()
             ],
           ),
         ),

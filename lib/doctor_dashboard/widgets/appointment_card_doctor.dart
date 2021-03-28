@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -7,13 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:queueless/common-widgets/text_widget.dart';
 import 'package:queueless/data_classes/appointment_class.dart';
 
+
 class AppointmentCardDoctor extends StatelessWidget {
   final apnmt;
   final key;
   final color;
   AppointmentCardDoctor(this.apnmt, this.key, {this.color});
 
-  List<Color> _colors = [
+  final List<Color> _colors = [
     Colors.orange,
     Colors.redAccent,
     Colors.green[600],
@@ -21,7 +20,6 @@ class AppointmentCardDoctor extends StatelessWidget {
     Colors.pink,
     Colors.purple[300]
   ];
-  Random rnd = new Random();
 
   @override
   Widget build(BuildContext context) {

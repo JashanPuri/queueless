@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:queueless/auth/screens/loginScreen.dart';
+//import 'package:queueless/auth/screens/loginScreen.dart';
 import 'package:queueless/data_classes/appointment_class.dart';
 import 'package:queueless/doctor_dashboard/doctor_dashboard.dart';
 import 'package:queueless/data_classes/doctor_class.dart';
 import 'package:queueless/hospitals_dashboard/screens/appointment_form.dart';
 import 'package:queueless/hospitals_dashboard/screens/doctors_list_screen.dart';
+import 'package:queueless/hospitals_dashboard/screens/payment_screen.dart';
 import './article/article_provider.dart';
 import './data_classes/hospital_dataclass.dart';
 import './hospitals_dashboard/screens/hospital_detail_screen.dart';
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        home: AppointmentForm(),
+        home: HomeDashboard(),
         routes: {
           OtpScreen.routeName: (context) => OtpScreen(),
           CovidDashboard.routeName: (context) => CovidDashboard(),
@@ -73,7 +74,8 @@ class MyApp extends StatelessWidget {
           HospitalDetailScreen.routeName: (context) => HospitalDetailScreen(),
           DoctorDashboard.routeName: (context) => DoctorDashboard(),
           DoctorsListScreen.routeName: (context) => DoctorsListScreen(),
-          AppointmentForm.routeName: (context) => AppointmentForm()
+          AppointmentForm.routeName: (context) => AppointmentForm(),
+          PaymentScreen.routeName: (context) => PaymentScreen()
         },
       ),
     );
