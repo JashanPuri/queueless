@@ -10,7 +10,7 @@ class PaymentScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
-        title: Text('Donate', style: TextStyle(color: Colors.black)),
+        title: Text('Pay', style: TextStyle(color: Colors.black)),
         leading: IconButton(
           icon: Icon(Icons.chevron_left),
           iconSize: 35,
