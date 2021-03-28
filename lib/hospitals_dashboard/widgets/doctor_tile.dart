@@ -37,13 +37,9 @@ class DoctorTile extends StatelessWidget {
         leading: CircleAvatar(
           radius: 30,
           backgroundColor: Colors.red,
-<<<<<<< HEAD
           backgroundImage: AssetImage(
             'assets/images/doctor-avatar.jpg',
           ),
-=======
-          backgroundImage: AssetImage('assets/images/doctor-avatar.jpg'),
->>>>>>> 4d5e3a68d5fef14ea6dd8cb7cacfba4810da0987
         ),
         title: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
