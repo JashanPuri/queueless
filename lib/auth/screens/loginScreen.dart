@@ -25,7 +25,9 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.symmetric(vertical: 20),
         child: Column(
           children: [
-            LoginImage(),
+            LoginImage(
+              isLoginScreen: true,
+            ),
             LoginForm(
               textFieldOnChanged: (value) {
                 _number = value;
