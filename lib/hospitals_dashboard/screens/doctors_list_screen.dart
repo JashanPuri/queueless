@@ -31,6 +31,12 @@ class DoctorsListScreen extends StatelessWidget {
           color: Colors.black,
           onPressed: () => Navigator.of(context).pop(),
         ),
+        title: Text(
+          'Meet Your ${category.categoryName}',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -56,12 +62,26 @@ class DoctorsListScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              ..._doctors
-                  .map((doctor) => DoctorTile(
-                    doctor: doctor,
-                    img: category.categoryIconPath,
-                  ))
-                  .toList()
+              if (_doctors.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20.0),
+                  child: Center(
+                    child: Text(
+                      'No doctors available',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              if (_doctors.isNotEmpty)
+                ..._doctors
+                    .map((doctor) => DoctorTile(
+                          doctor: doctor,
+                          img: category.categoryIconPath,
+                        ))
+                    .toList()
             ],
           ),
         ),

@@ -5,6 +5,7 @@ import 'package:queueless/data_classes/appointment_class.dart';
 import 'package:queueless/doctor_dashboard/doctor_dashboard.dart';
 import 'package:queueless/data_classes/doctor_class.dart';
 import 'package:queueless/hospitals_dashboard/screens/doctors_list_screen.dart';
+import 'package:queueless/hospitals_dashboard/screens/payment_screen.dart';
 import './article/article_provider.dart';
 import './data_classes/hospital_dataclass.dart';
 import './hospitals_dashboard/screens/hospital_detail_screen.dart';
@@ -72,6 +73,7 @@ class MyApp extends StatelessWidget {
           HospitalDetailScreen.routeName: (context) => HospitalDetailScreen(),
           DoctorDashboard.routeName: (context) => DoctorDashboard(),
           DoctorsListScreen.routeName: (context) => DoctorsListScreen(),
+          PaymentScreen.routeName: (context) => PaymentScreen(),
         },
       ),
     );

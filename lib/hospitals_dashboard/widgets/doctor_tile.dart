@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:queueless/data_classes/doctor_class.dart';
+import 'package:queueless/hospitals_dashboard/screens/payment_screen.dart';
 
 class DoctorTile extends StatelessWidget {
   final Doctor doctor;
@@ -24,7 +25,12 @@ class DoctorTile extends StatelessWidget {
               actions: [
                 TextButton(
                   child: Text('YES'),
-                  onPressed: () {},
+                  onPressed: () {
+                    while(Navigator.of(context).canPop()){
+                      Navigator.of(context).pop();
+                    }
+                    Navigator.of(context).pushNamed(PaymentScreen.routeName);
+                  },
                 ),
                 TextButton(
                   child: Text('NO'),
