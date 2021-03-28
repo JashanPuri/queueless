@@ -15,7 +15,7 @@ class ArticleDetail extends StatelessWidget {
       body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 10, top: 20),
+        padding: const EdgeInsets.only(left: 15, right: 10, top: 20,bottom: 60),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -60,6 +60,14 @@ class ArticleDetail extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.network(article.imageUrl,fit: BoxFit.cover,)),
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                  BoxShadow(
+                  color: Colors.grey.withOpacity(0.25),
+                  spreadRadius: 3,
+                  blurRadius: 3,)],
+                  ),
                 ),
               ),
               SizedBox(height: 20),

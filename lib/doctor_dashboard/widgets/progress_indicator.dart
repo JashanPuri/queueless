@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import '../common-widgets/text_widget.dart';
+import '../../common-widgets/text_widget.dart';
 
 class ProgressIndicatorWidget extends StatelessWidget {
   final int completed;
   final int total;
+  final Function isAvailable;
+  final bool status;
 
-  ProgressIndicatorWidget({this.completed, this.total});
+  ProgressIndicatorWidget({this.completed, this.total, this.isAvailable,this.status});
 
   @override
   Widget build(BuildContext context) {
@@ -49,24 +51,28 @@ class ProgressIndicatorWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  Container(
-                      decoration:
-                          BoxDecoration(shape: BoxShape.circle, boxShadow: [
-                        BoxShadow(color: Colors.green.shade200, blurRadius: 3)
-                      ]),
-                      child: Icon(
-                        Icons.check_circle,
-                        color: Colors.green,
-                      )),
-                  SizedBox(width: 15, height: 40),
-                  TextWidget(
-                    "Available",
-                    color: Colors.green,
-                    isBold: true,
-                  ),
-                ],
+              InkWell(
+                onTap: isAvailable,
+                splashColor: Colors.transparent,
+                child: Row(
+                  children: [
+                    Container(
+                        decoration:
+                            BoxDecoration(shape: BoxShape.circle, boxShadow: [
+                          BoxShadow(color: status ? Colors.green.shade200 : Colors.white, blurRadius: 3)
+                        ]),
+                        child: Icon(
+                          Icons.check_circle,
+                          color: status ? Colors.green : Colors.grey[300],
+                        )),
+                    SizedBox(width: 15, height: 40),
+                    TextWidget(
+                      "Available",
+                      color: status ? Colors.green : Colors.grey,
+                      isBold: true,
+                    ),
+                  ],
+                ),
               )
             ],
           ),

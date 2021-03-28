@@ -84,7 +84,7 @@ class ArticleDashboard extends StatelessWidget {
                                       ),
                                       SizedBox(width: 10),
                                       Container(
-                                        height: 80,
+                                        height: 100,
                                         width: width - 155,
                                         child: Column(
                                           crossAxisAlignment:

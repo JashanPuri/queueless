@@ -4,6 +4,7 @@ import 'package:queueless/auth/screens/loginScreen.dart';
 import 'package:queueless/data_classes/appointment_class.dart';
 import 'package:queueless/doctor_dashboard/doctor_dashboard.dart';
 import 'package:queueless/data_classes/doctor_class.dart';
+import 'package:queueless/hospitals_dashboard/screens/appointment_form.dart';
 import 'package:queueless/hospitals_dashboard/screens/doctors_list_screen.dart';
 import './article/article_provider.dart';
 import './data_classes/hospital_dataclass.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        home: HomeDashboard(),
+        home: AppointmentForm(),
         routes: {
           OtpScreen.routeName: (context) => OtpScreen(),
           CovidDashboard.routeName: (context) => CovidDashboard(),
@@ -72,6 +73,7 @@ class MyApp extends StatelessWidget {
           HospitalDetailScreen.routeName: (context) => HospitalDetailScreen(),
           DoctorDashboard.routeName: (context) => DoctorDashboard(),
           DoctorsListScreen.routeName: (context) => DoctorsListScreen(),
+          AppointmentForm.routeName: (context) => AppointmentForm()
         },
       ),
     );

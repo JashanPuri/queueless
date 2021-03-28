@@ -7,10 +7,11 @@ import 'package:provider/provider.dart';
 import 'package:queueless/common-widgets/text_widget.dart';
 import 'package:queueless/data_classes/appointment_class.dart';
 
-class AppointmentCard extends StatelessWidget {
+class AppointmentCardDoctor extends StatelessWidget {
   final apnmt;
   final key;
-  AppointmentCard(this.apnmt,this.key);
+  final color;
+  AppointmentCardDoctor(this.apnmt, this.key, {this.color});
 
   List<Color> _colors = [
     Colors.orange,
@@ -44,7 +45,7 @@ class AppointmentCard extends StatelessWidget {
         height: 120,
         margin: EdgeInsets.only(bottom: 8),
         child: Card(
-          color: _colors[apnmt.appointmentId%6],
+          color: color == null ? _colors[apnmt.appointmentId % 6] : color,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Padding(

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CustomElevatedButton extends StatelessWidget {
   final String label;
   final Function onPressed;
-
   CustomElevatedButton({this.label, this.onPressed});
 
   @override
@@ -12,7 +11,7 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         label,
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600,color: Colors.white),
       ),
       style: ButtonStyle(
         minimumSize: MaterialStateProperty.all<Size>(
