@@ -6,11 +6,13 @@ class TextWidget extends StatelessWidget {
   final color;
   final isBold;
   final maxLines;
+  final fontWeight;
   TextWidget(this.text,
       {double this.size = 16.0,
       this.isBold = false,
       this.color = Colors.black,
-      this.maxLines = 2});
+      this.maxLines = 2,
+      this.fontWeight = FontWeight.w600});
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -20,7 +22,7 @@ class TextWidget extends StatelessWidget {
       style: TextStyle(
         fontSize: size,
         color: color,
-        fontWeight: isBold ? FontWeight.bold : FontWeight.w600,
+        fontWeight: isBold ? FontWeight.bold : fontWeight,
       ),
     );
   }
