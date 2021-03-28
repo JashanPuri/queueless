@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:queueless/auth/screens/loginScreen.dart';
 //import 'package:queueless/auth/screens/loginScreen.dart';
 import 'package:queueless/data_classes/appointment_class.dart';
 import 'package:queueless/doctor_dashboard/doctor_dashboard.dart';
@@ -63,7 +64,7 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        home: HomeDashboard(),
+        home: LoginScreen(),
         routes: {
           OtpScreen.routeName: (context) => OtpScreen(),
           CovidDashboard.routeName: (context) => CovidDashboard(),

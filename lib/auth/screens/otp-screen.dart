@@ -13,7 +13,10 @@ class OtpScreen extends StatefulWidget {
 class _OtpScreenState extends State<OtpScreen> {
   void confirmOtp() {
     print("OTP = $_otp");
-    Navigator.of(context).pushNamed(
+    while(Navigator.of(context).canPop()){
+      Navigator.of(context).pop();
+    }
+    Navigator.of(context).pushReplacementNamed(
       HomeDashboard.routeName,
     );
   }
